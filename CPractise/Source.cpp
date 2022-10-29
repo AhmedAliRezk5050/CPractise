@@ -14,7 +14,7 @@ int main()
   p = &a; // pointer assignment
 
   // %u: It is used to print unsigned decimal number
-  printf("%u\n", &a); // address of a
+  printf("%u\n", p); // address of a
 
   // %d: It is used to print signed decimal number
   printf("%d\n", *p); //  dereferencing =>  value of a
