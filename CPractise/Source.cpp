@@ -11,11 +11,11 @@ using namespace std;
 ///			2- pass by Address
 ///			3- pass by Reference => c++ only
 
-// pass by Address
-void swap(int* x, int* y) {
-	int temp = *x; // dereference x to get the value
-	*x = *y;
-	*y = temp;
+// pass by Reference
+void swap(int& x, int& y) {
+	int temp = x;
+	x = y;
+	y = temp;
 }
 
 int main()
@@ -24,8 +24,12 @@ int main()
 	a = 1;
 	b = 7;
 
-	// pass address of a and b
-	swap(&a, &b);
+
+	// swap is no longer a separate function
+	// it has became a part of the main function and there is only one activation record (a b x y temp)
+	//  so the swap code is pasted in the main function
+	// so the use of pass by Reference is not advicable for heavy functions
+	swap(a, b);
 
 	// no change
 	cout << a << endl; // 7
