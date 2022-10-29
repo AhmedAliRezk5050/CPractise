@@ -12,7 +12,7 @@ x64
 *.lo
 *.o
 *.obj
-
+*.json
 # Precompiled Headers
 *.gch
 *.pch
