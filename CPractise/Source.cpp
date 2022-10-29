@@ -4,19 +4,19 @@
 #include <iostream>
 using namespace std;
 
+struct Rectangle
+{
+	int length;
+	int breadth;
+};
 
-// foo returns array
-// p points to an array and after foo is excuted, pointer p detroyed and A points to the array
-int* foo(int n) {
-	int* p;
-	p = (int*)malloc(n * sizeof(int));
-	return p;
+int area(struct Rectangle rec) {
+	return rec.breadth * rec.breadth;
 }
 
 int main()
 {
-	int* A;
-	A = foo(5);
-	A[5] = 20;
-	cout << A[5]; // 20
+	struct Rectangle r = { 10, 5 };
+
+	cout << area(r);
 }
