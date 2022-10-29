@@ -11,13 +11,11 @@ using namespace std;
 ///			2- pass by Address
 ///			3- pass by Reference => c++ only
 
-// pass by value
-void swap(int x, int y) {
-	// Parameters is just copied
-	// changes are in the copies only
-	int temp = x;
-	x = y;
-	y = temp;
+// pass by Address
+void swap(int* x, int* y) {
+	int temp = *x; // dereference x to get the value
+	*x = *y;
+	*y = temp;
 }
 
 int main()
@@ -25,10 +23,11 @@ int main()
 	int a, b;
 	a = 1;
 	b = 7;
-	
-	swap(a, b);
+
+	// pass address of a and b
+	swap(&a, &b);
 
 	// no change
-	cout << a << endl; // 1
-	cout << b << endl; // 7
+	cout << a << endl; // 7
+	cout << b << endl; // 1
 }
