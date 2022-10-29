@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
+using namespace std;
 
 //
 // ---------------- Pointers ----------------
@@ -8,37 +10,24 @@
 
 int main()
 {
-  // allocate memory in heap
+	// ---- References ----
+	// 
+	// C++ only
+	// a reference is a nickname(alias) given to a variable
 
-  // --start--  C
-  // declared in stack
-  int *p;
+	int a = 10;
 
-  p = (int *)malloc(5 * sizeof(int)); // malloc allocates memory in heap and returns void pointer
+	int& r = a; // reference must be initialized when declared  => stack
 
-  p[0] = 10;
-  p[1] = 20;
-  p[2] = 30;
-  p[3] = 40;
-  p[4] = 50;
+	// a and r have the same address in memery
 
-  for (int i = 0; i < 5; i++)
-  {
-    printf("%d\n", p[i]);
-  }
-  // --end--  C
+	cout << a << endl;
 
-  // --start--  C++
-  int *a;
-  a = new int[5]; // c++ shorter syntax
-  a[0] = 10;
-  a[1] = 20;
-  a[2] = 30;
-  a[3] = 40;
-  a[4] = 50;
-  for (int i = 0; i < 5; i++)
-  {
-    printf("%d\n", a[i]);
-  }
-  // --end--  C++
+	cout << r << endl;
+
+	r++;
+
+	cout << a << endl;
+
+	cout << r << endl;
 }
