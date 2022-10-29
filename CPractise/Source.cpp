@@ -4,27 +4,34 @@
 #include <iostream>
 using namespace std;
 
+// assume int = 2 bytes in the current compiler
+
+// 4 bytes
+struct Rectangle {
+	int length;  // 2 bytes
+	int breadth; // 2 bytes
+};
 
 int main()
 {
-	// ---- References ----
-	// 
-	// C++ only
-	// a reference is a nickname(alias) given to a variable
+	// declare + initialize
+	struct Rectangle r = {10, 5};
+	// assign
+	r.length = 20;
+	cout << r.length * r.breadth << endl;
+	
+	//-------
 
-	int a = 10;
+	// declare pointer
+	// generally pointer size = the size of int in any compiler
+	// so the size of p in the current compiler = 2 bytes
+	// declare + initialize
+	struct Rectangle* p = &r; // 2 bytes
 
-	int& r = a; // reference must be initialized when declared  => stack
-
-	// a and r have the same address in memery
-
-	cout << a << endl; // 10
-
-	cout << r << endl; // 10
-
-	r++;
-
-	cout << a << endl; // 11
-
-	cout << r << endl; // 11
+	// access struct members
+	(*p).breadth = 500;
+	// or using ->
+	p->breadth = 30;
+	cout << p->length * p->breadth << endl;
+	
 }
