@@ -11,17 +11,24 @@ using namespace std;
 ///			2- pass by Address
 ///			3- pass by Reference => c++ only
 
-// Parameters are copied
-int add(int x, int y) {
-	return x + y;
+// pass by value
+void swap(int x, int y) {
+	// Parameters is just copied
+	// changes are in the copies only
+	int temp = x;
+	x = y;
+	y = temp;
 }
 
 int main()
 {
-	int a, b, c;
-	a = 3;
-	b = 2;
-	c = add(a, b);
+	int a, b;
+	a = 1;
+	b = 7;
+	
+	swap(a, b);
 
-	cout << c << endl;
+	// no change
+	cout << a << endl; // 1
+	cout << b << endl; // 7
 }
