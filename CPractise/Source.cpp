@@ -18,13 +18,13 @@ int main()
 
 	// a and r have the same address in memery
 
-	cout << a << endl;
+	cout << a << endl; // 10
 
-	cout << r << endl;
+	cout << r << endl; // 10
 
 	r++;
 
-	cout << a << endl;
+	cout << a << endl; // 11
 
-	cout << r << endl;
+	cout << r << endl; // 11
 }
