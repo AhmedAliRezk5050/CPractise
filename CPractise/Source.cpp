@@ -10,15 +10,15 @@ struct Rectangle
 	int breadth;
 };
 
-void update(struct Rectangle& rec) {
-	rec.breadth = 50;
+void update(struct Rectangle* rec) {
+	rec->breadth = 200;
 }
 
 int main()
 {
 	struct Rectangle r = { 10, 5 };
 
-	update(r);
-
-	cout << r.breadth; // 50
+	update(&r);
+	
+	cout << r.breadth << endl; // 200
 }
