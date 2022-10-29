@@ -10,13 +10,15 @@ struct Rectangle
 	int breadth;
 };
 
-int area(struct Rectangle rec) {
-	return rec.breadth * rec.breadth;
+void update(struct Rectangle& rec) {
+	rec.breadth = 50;
 }
 
 int main()
 {
 	struct Rectangle r = { 10, 5 };
 
-	cout << area(r);
+	update(r);
+
+	cout << r.breadth; // 50
 }
