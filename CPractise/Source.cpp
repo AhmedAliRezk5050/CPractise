@@ -31,7 +31,7 @@ int main()
 	// so the use of pass by Reference is not advicable for heavy functions
 	swap(a, b);
 
-	// no change
+	// changed
 	cout << a << endl; // 7
 	cout << b << endl; // 1
 }
