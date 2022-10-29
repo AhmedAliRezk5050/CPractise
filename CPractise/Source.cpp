@@ -5,27 +5,18 @@
 using namespace std;
 
 
-/// Functions
-///		Parameter passing
-///			1- pass by Value
-///			2- pass by Address
-///			3- pass by Reference => c++ only
-
-// because A acts as a pointer to an array
-// the passed array is changed of we make changes inside foo
-void foo(int A[], int n) {
-	A[0] = 200;
+// foo returns array
+// p points to an array and after foo is excuted, pointer p detroyed and A points to the array
+int* foo(int n) {
+	int* p;
+	p = (int*)malloc(n * sizeof(int));
+	return p;
 }
 
 int main()
 {
-	int X[5] = { 1, 2, 3, 4, 5 };
-
-	foo(X, 5);
-
-	for (int i = 0; i < 5; i++)
-	{
-		cout << X[i] << endl;
-	}
-	// {200, 2, 3, 4, 5}
+	int* A;
+	A = foo(5);
+	A[5] = 20;
+	cout << A[5]; // 20
 }
