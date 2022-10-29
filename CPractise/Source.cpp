@@ -4,21 +4,26 @@
 #include <iostream>
 using namespace std;
 
-struct Rectangle
+struct Test
 {
-	int length;
-	int breadth;
+	int A[5];
+	int d;
 };
 
-void update(struct Rectangle* rec) {
-	rec->breadth = 200;
+// pass by value
+void update(struct Test rec) {
+	// the struct array is just copied.
+	// any changes here will not affect the passed struct
+	rec.A[0] = 20;
 }
 
 int main()
 {
-	struct Rectangle r = { 10, 5 };
+	struct Test r = { {1, 2, 3, 4, 5}, 200 };
 
-	update(&r);
-	
-	cout << r.breadth << endl; // 200
+	cout << r.A[0] << endl; // 1
+
+	update(r);
+
+	cout << r.A[0] << endl; // 1
 }
