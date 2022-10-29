@@ -14,24 +14,18 @@ struct Rectangle {
 
 int main()
 {
-	// declare + initialize
-	struct Rectangle r = {10, 5};
-	// assign
-	r.length = 20;
-	cout << r.length * r.breadth << endl;
-	
-	//-------
+	// ---- Create object dynamically in heap using pointer
 
-	// declare pointer
-	// generally pointer size = the size of int in any compiler
-	// so the size of p in the current compiler = 2 bytes
-	// declare + initialize
-	struct Rectangle* p = &r; // 2 bytes
+	struct Rectangle* p;
 
-	// access struct members
-	(*p).breadth = 500;
-	// or using ->
-	p->breadth = 30;
-	cout << p->length * p->breadth << endl;
-	
+	// cast malloc result => (struct Rectangle *)
+	p = (struct Rectangle*)malloc(sizeof(struct Rectangle));
+
+	// using if because malloc might return null if insufficient memory is available
+	if (p) {
+		p->breadth = 10;
+		p->length = 5;
+		cout << p->breadth << endl;
+		cout << p->length << endl;
+	}
 }
