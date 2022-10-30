@@ -7,13 +7,13 @@ using namespace std;
 
 
 // --- Recursion ---
-// ---  1- Head recursion 
+// ---  1- Tail recursion 
 
 void foo(int n)
 {
 	if (n > 0) {
-		foo(n - 1);
 		cout << n << endl;
+		foo(n - 1);
 	}
 }
 
@@ -21,5 +21,5 @@ int main()
 {
 	int x = 3;
 
-	foo(x); // 1 , 2, 3
+	foo(x); // 3, 2, 1
 }
