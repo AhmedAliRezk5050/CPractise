@@ -10,12 +10,16 @@ int pow(int n, int o) {
 		return 1;
 	}
 
-	return n * pow(n, o - 1);
+	if (o % 2 == 0) {
+		return pow(n * n, o / 2);
+	}
+
+	return n * pow(n * n, (o - 1) / 2);
 }
 
 
 
 int main()
 {
-	cout << pow(2, 3); // 8
+	cout << pow(2, 10) << endl; // 32
 }
