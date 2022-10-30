@@ -4,26 +4,18 @@
 #include <iostream>
 using namespace std;
 
-void funA(int n);
-void funB(int n);
 
-void funB(int n) {
-	if (n > 1) {
-		cout << n << endl;
-		funA(n / 2);
+int fun(int n) {
+	if (n > 100) {
+		return n - 10;
 	}
-}
 
-void funA(int n) {
-	if (n > 0) {
-		cout << n << endl;
-		funB(n - 1);
-	}
+	return fun(fun(n + 11));
 }
 
 
 
 int main()
 {
-	funA(20); // 20 , 19 , 9 , 8 , 4 , 3 , 1
+	cout << fun(95); //91
 }
