@@ -21,5 +21,5 @@ int pow(int n, int o) {
 
 int main()
 {
-	cout << pow(2, 10) << endl; // 32
+	cout << pow(2, 10) << endl; // 1024
 }
