@@ -5,17 +5,17 @@
 using namespace std;
 
 
-int fun(int n) {
-	if (n > 0) {
-		return n + fun(n - 1);
+int fact(int n) {
+	if (n == 1) {
+		return 1;
 	}
 
-	return 0;
+	return n * fact(n - 1);
 }
 
 
 
 int main()
 {
-	cout << fun(7); // 28
+	cout << fact(5); // 120
 }
