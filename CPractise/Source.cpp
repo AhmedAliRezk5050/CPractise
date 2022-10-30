@@ -4,10 +4,10 @@
 #include <iostream>
 using namespace std;
 
+static  int x = 0;
+
 int foo(int n)
 {
-	static  int x = 0;
-
 	if (n > 0) {
 		x++;
 		return x + foo(n - 1);
@@ -18,7 +18,5 @@ int foo(int n)
 
 int main()
 {
-	int x = 5;
-
 	cout << foo(5) << endl; //25
 }
