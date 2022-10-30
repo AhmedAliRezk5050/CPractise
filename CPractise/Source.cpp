@@ -4,26 +4,22 @@
 #include <iostream>
 using namespace std;
 
-struct Test
-{
-	int A[5];
-	int d;
-};
 
-// pass by value
-void update(struct Test rec) {
-	// the struct array is just copied.
-	// any changes here will not affect the passed struct
-	rec.A[0] = 20;
+
+// --- Recursion ---
+// ---  1- Head recursion 
+
+void foo(int n)
+{
+	if (n > 0) {
+		foo(n - 1);
+		cout << n << endl;
+	}
 }
 
 int main()
 {
-	struct Test r = { {1, 2, 3, 4, 5}, 200 };
+	int x = 3;
 
-	cout << r.A[0] << endl; // 1
-
-	update(r);
-
-	cout << r.A[0] << endl; // 1
+	foo(x); // 1 , 2, 3
 }
