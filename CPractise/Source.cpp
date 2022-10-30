@@ -5,17 +5,17 @@
 using namespace std;
 
 
-int fact(int n) {
-	if (n == 1) {
+int pow(int n, int o) {
+	if (o == 0) {
 		return 1;
 	}
 
-	return n * fact(n - 1);
+	return n * pow(n, o - 1);
 }
 
 
 
 int main()
 {
-	cout << fact(5); // 120
+	cout << pow(2, 3); // 8
 }
