@@ -4,22 +4,21 @@
 #include <iostream>
 using namespace std;
 
-
-
-// --- Recursion ---
-// ---  1- Tail recursion 
-
-void foo(int n)
+int foo(int n)
 {
+	static  int x = 0;
+
 	if (n > 0) {
-		cout << n << endl;
-		foo(n - 1);
+		x++;
+		return x + foo(n - 1);
 	}
+
+	return 0;
 }
 
 int main()
 {
-	int x = 3;
+	int x = 5;
 
-	foo(x); // 3, 2, 1
+	cout << foo(5) << endl; //25
 }
