@@ -4,13 +4,14 @@
 #include <iostream>
 using namespace std;
 
-static  int x = 0;
-
+// time: O(2^n)
+// space: O(n)
 int foo(int n)
 {
 	if (n > 0) {
-		x++;
-		return x + foo(n - 1);
+		cout << n << endl;
+		foo(n - 1);
+		foo(n - 1);
 	}
 
 	return 0;
@@ -18,5 +19,5 @@ int foo(int n)
 
 int main()
 {
-	cout << foo(5) << endl; //25
+	foo(3); // 3, 2, 1, 1, 2, 1, 1
 }
