@@ -4,22 +4,31 @@
 #include <iostream>
 using namespace std;
 
-
-int pow(int n, int o) {
-	if (o == 0) {
+double myPow(double x, double n) {
+	if (n == 0) {
 		return 1;
 	}
 
-	if (o % 2 == 0) {
-		return pow(n * n, o / 2);
+	if ((int)n % 2 == 0) {
+		if (n < 0) {
+			return (1 / myPow(x * x, -n / 2));
+		}
+		else {
+			return myPow(x * x, n / 2);
+		}
+
 	}
 
-	return n * pow(n * n, (o - 1) / 2);
+	if (n < 0) {
+		return 1 / (x * myPow(x * x, (-n - 1) / 2));
+	}
+	else {
+		return x * myPow(x * x, (n - 1) / 2);
+	}
 }
-
 
 
 int main()
 {
-	cout << pow(2, 10) << endl; // 1024
+	cout << myPow(2, -3) << endl; // 0.125
 }
