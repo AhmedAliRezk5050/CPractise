@@ -2,28 +2,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include <vector>
 using namespace std;
 
-double e(double x, double n)
-{
-	double s = 1;
-	int i = 0;
-	double num = 1;
-	double den = 1;
-
-	for (int i = 1; i <=n; i++)
-	{
-		num *= x;
-		den *= i;
-		s += num / den;
-	}
-
-	return s;
-}
-
+int fib (int n) {
+    vector<int> a = {0, 1};
+  
+    for (int i = 1; i < n; i++) {
+        int f1 = a.at(i);
+        int f2 = a.at(i - 1);
+        a.push_back(f1 + f2);
+    }
+    return a.at(n);
+};
 
 int main()
 {
-	int x = 1, n = 10;
-	cout << "\n" << e(x, n);
+	
+	cout << fib(8);
 }
