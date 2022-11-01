@@ -6,20 +6,24 @@ using namespace std;
 
 double e(double x, double n)
 {
-	static double s = 1;
+	double s = 1;
+	int i = 0;
+	double num = 1;
+	double den = 1;
 
-	if (n == 0) {
-		return s;
+	for (int i = 1; i <=n; i++)
+	{
+		num *= x;
+		den *= i;
+		s += num / den;
 	}
 
-	s = 1 + (x / n) * s;
-
-	return e(x, n - 1);
+	return s;
 }
 
 
 int main()
 {
-	int x = 2, n = 10;
+	int x = 1, n = 10;
 	cout << "\n" << e(x, n);
 }
