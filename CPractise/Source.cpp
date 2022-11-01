@@ -4,30 +4,21 @@
 #include <iostream>
 using namespace std;
 
-double e(int x, int n)
+double e(double x, double n)
 {
-    static double p = 1, f = 1;
-    double r;
+	double s = 1;
 
-    // Termination condition
-    if (n == 0)
-        return 1;
+	for (;n > 0; n--)
+	{
+		s = 1 + (x/n) * s;
+	}
 
-    // Recursive call
-    r = e(x, n - 1);
-
-    // Update the pxower of x
-    p = p * x;  
-
-    // Factorial
-    f = f * n;
-
-    return (r + p / f);
+	return  s;
 }
 
 
 int main()
 {
-    int x = 4, n = 10;
-    cout << "\n" << e(x, n);
+	int x = 4, n = 10;
+	cout << "\n" << e(x, n);
 }
