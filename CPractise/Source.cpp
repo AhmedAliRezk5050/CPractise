@@ -6,18 +6,13 @@
 using namespace std;
 
 int fib (int n) {
-    vector<int> a = {0, 1};
-  
-    for (int i = 1; i < n; i++) {
-        int f1 = a.at(i);
-        int f2 = a.at(i - 1);
-        a.push_back(f1 + f2);
-    }
-    return a.at(n);
+	if (n < 2) return n;
+
+	return fib(n - 1) + fib(n - 2);
 };
 
 int main()
 {
 	
-	cout << fib(8);
+	cout << fib(6);
 }
