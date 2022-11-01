@@ -4,51 +4,30 @@
 #include <iostream>
 using namespace std;
 
-double fact(double n) {
-	if (n < 2) {
-		return 1;
-	}
-	return n * fact(n - 1);
+double e(int x, int n)
+{
+    static double p = 1, f = 1;
+    double r;
+
+    // Termination condition
+    if (n == 0)
+        return 1;
+
+    // Recursive call
+    r = e(x, n - 1);
+
+    // Update the pxower of x
+    p = p * x;  
+
+    // Factorial
+    f = f * n;
+
+    return (r + p / f);
 }
 
-double myPow(double x, double n) {
-	if (n == 0) {
-		return 1;
-	}
-
-	if ((int)n % 2 == 0) {
-		if (n < 0) {
-			return (1 / myPow(x * x, -n / 2));
-		}
-		else {
-			return myPow(x * x, n / 2);
-		}
-
-	}
-
-	if (n < 0) {
-		return 1 / (x * myPow(x * x, (-n - 1) / 2));
-	}
-	else {
-		return x * myPow(x * x, (n - 1) / 2);
-	}
-}
-
-double u(double x, double n) {
-	return myPow(x, n) / fact(n);
-}
-
-
-
-double sum(double x, double n) {
-	if (n < 0) {
-		return 0;
-	}
-
-	return u(x, n) + sum(x, n - 1);
-}
 
 int main()
 {
-	cout << sum(13, 40) << endl;
+    int x = 4, n = 10;
+    cout << "\n" << e(x, n);
 }
